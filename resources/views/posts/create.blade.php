@@ -5,6 +5,8 @@
         <h1>Create Post</h1>
         <hr>
         
+        @include('layouts.errors')
+
         <form method="POST" action="/posts">
             {{ csrf_field() }}
             
@@ -17,7 +19,9 @@
                 <input type="text" class="form-control" name="body">
             </div>
 
-            <button type="submit" class="btn btn-default">Publish</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Publish</button>
+            </div>
         </form>
     </div>
 @endsection
