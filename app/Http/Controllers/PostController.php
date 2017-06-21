@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +56,9 @@ class PostController extends Controller
 
         //Post::create($request->all());
 
-        Post::create(request(['title','body']));
+        auth()->user()->publish(
+            new Post(request(['title','body']))
+        );
 
         return redirect()->route('posts.index');
     }
