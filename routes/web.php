@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::resource('tasks', 'TaskController');
 
 Route::resource('posts', 'PostController');
+
+Route::post('posts/{post}/comments', 'CommentController@store')->name('comments.store');
