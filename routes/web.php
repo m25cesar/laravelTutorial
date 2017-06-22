@@ -21,6 +21,8 @@ Route::resource('posts', 'PostController');
 
 Route::post('posts/{post}/comments', 'CommentController@store')->name('comments.store');
 
+Route::get('posts/tags/{tag}', 'TagController@index');
+
 // Custom Auth
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
