@@ -24,10 +24,10 @@ Route::post('posts/{post}/comments', 'CommentController@store')->name('comments.
 Route::get('posts/tags/{tag}', 'TagController@index');
 
 // Custom Auth
-Route::get('/register', 'RegistrationController@create');
+Route::get('/register', 'RegistrationController@create')->name('register');
 Route::post('/register', 'RegistrationController@store');
 
 Route::get('/login', 'SessionController@create')->name('login');
 Route::post('/login', 'SessionController@store');
-Route::get('/logout', 'SessionController@destroy');
+Route::get('/logout', 'SessionController@destroy')->name('logout');
 
